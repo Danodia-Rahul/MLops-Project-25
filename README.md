@@ -56,106 +56,88 @@ MLOPS-PROJECT-25/
 
 ## ⚙️ Setup & Installation
 
-### 1. 🚀 Clone the Repository
-
-```bash
-git clone https://github.com/your-username/mlops-25-project.git
+<h2>📥 Clone the Repository</h2>
+<pre><code>git clone https://github.com/your-username/mlops-25-project.git
 cd mlops-25-project
+</code></pre>
 
+<h2>🐳 Build & Run with Docker</h2>
+<p>We are using a Dockerized Flask application served via Gunicorn.</p>
 
-### 2. 🐳 Build & Run with Docker
+<h3>✅ Build the Docker Image</h3>
+<pre><code>docker build -t premium-predictor -f Deployment/Dockerfile .
+</code></pre>
 
-We are using a Dockerized Flask application served via Gunicorn.
+<h3>✅ Run the Container</h3>
+<pre><code>docker run -p 9696:9696 premium-predictor
+</code></pre>
+<p>Make sure Docker is running in the background.</p>
 
-#### ✅ Build the Docker Image
+<h3>On Linux</h3>
+<p>Start Docker with the following command:</p>
+<pre><code>sudo service docker start
+</code></pre>
 
-```bash
-docker build -t premium-predictor -f Deployment/Dockerfile .
+<p>Once everything is set up, the service will be available at:</p>
+<pre><code>http://localhost:9696/predict
+</code></pre>
 
+<h2>🧪 Running a Test Inference</h2>
+<p>Run the following command:</p>
+<pre><code>python Deployment/test.py
+</code></pre>
 
-#### ✅ Run the Container
+<p>You should see a response like:</p>
 
-```bash
-docker run -p 9696:9696 premium-predictor
+<h3>🔁 Inference API Details</h3>
+<ul>
+  <li><strong>Endpoint</strong></li>
+  <li><strong>URL</strong>: <code>/predict</code></li>
+  <li><strong>Method</strong>: <code>POST</code></li>
+  <li><strong>Content-Type</strong>: <code>application/json</code></li>
+</ul>
 
+<hr>
 
-Make sure Docker is running in the background.
+<h4>📥 Example Input</h4>
+<pre><code>{
+  "Age": 30.0,
+  "Annual Income": 32000.0,
+  "Number of Dependents": 3.0,
+  "Occupation": "Employed",
+  "Credit Score": 690.0,
+  "Property Type": "House"
+}
+</code></pre>
 
-### On Linux
-
-Start Docker with the following command:
-
-```bash
-sudo service docker start
-
-Once everything is set up, the service will be available at:
-
-```bash
-http://localhost:9696/predict
-
-## 🧪 Running a Test Inference
-
-Run the following command:
-
-```bash
-python Deployment/test.py
-
-You should see a response like:
-
-### 🔁 Inference API Details
-
-**Endpoint**  
-**URL**: `/predict`  
-**Method**: `POST`  
-**Content-Type**: `application/json`
-
----
-
-**📥 Example Input**
-
-```json
-[
-  {
-    "Age": 30.0,
-    "Annual Income": 32000.0,
-    "Number of Dependents": 3.0,
-    "Occupation": "Employed",
-    "Credit Score": 690.0,
-    "Property Type": "House"
-  }
-]
-
-**📤 Example Output**
-
-```json
-{
+<h4>📤 Example Output</h4>
+<pre><code>{
   "prediction": [594.72]
 }
+</code></pre>
 
-## 🔄 Prefect Flow
+<h2>🔄 Prefect Flow</h2>
+<p>To orchestrate the inference workflow using Prefect:</p>
 
-To orchestrate the inference workflow using Prefect:
+<ol>
+  <li><strong>Start the Prefect Server</strong><br>
+  Make sure the Prefect server is running in a separate terminal:</li>
+</ol>
 
-1. **Start the Prefect Server**  
-   Make sure the Prefect server is running in a separate terminal:
+<pre><code>prefect server start
+</code></pre>
 
-   ```bash
-   prefect server start
+<h2>⚙️ Prefect Setup</h2>
+<p>Run the following command to set up Prefect:</p>
+<pre><code>bash Prefect/prefect_setup.sh
+</code></pre>
 
+<h3>⚙️ Prefect Setup Details</h3>
+<p>Running the setup script will:</p>
+<ul>
+  <li>✅ Create a <strong>work pool</strong></li>
+  <li>✅ Create a <strong>deployment</strong></li>
+  <li>✅ Start a <strong>worker</strong> from the work pool</li>
+</ul>
 
-## ⚙️ Prefect Setup
-
-Run the following command to set up Prefect:
-
-```bash
-bash Prefect/prefect_setup.sh
-
-## ⚙️ Prefect Setup Details
-
-Running the setup script will:
-
-- ✅ Create a **work pool**
-- ✅ Create a **deployment**
-- ✅ Start a **worker** from the work pool
-
-Once completed, you can navigate to the **Prefect UI** and start a flow using the **Quick Run** option from the created deployment.
+<p>Once completed, you can navigate to the <strong>Prefect UI</strong> and start a flow using the <strong>Quick Run</strong> option from the created deployment.</p>
