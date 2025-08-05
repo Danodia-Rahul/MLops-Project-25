@@ -1,9 +1,6 @@
 import pickle
-
-import boto3
 import mlflow
 import mlflow.xgboost
-import numpy as np
 import pandas as pd
 import xgboost as xgb
 from hyperopt import STATUS_OK, fmin, hp, tpe
@@ -21,8 +18,7 @@ MLFLOW_TRACKING_URI = (
     'http://ec2-56-228-36-113.eu-north-1.compute.amazonaws.com:5000'
 )
 
-"""### Preprocess data"""
-
+### Preprocess data
 
 def dump_pickle(obj, filename):
     with open(filename, 'wb') as f_out:
@@ -90,8 +86,8 @@ def load_file(file_path):
         return pickle.load(f_in)
 
 
-"""### Hyper parameter tuning"""
 
+### Hyper parameter tuning"
 
 def hyper_parameter_tuning(num_trials=10):
 
@@ -133,11 +129,7 @@ def hyper_parameter_tuning(num_trials=10):
         max_evals=num_trials,
     )
 
-
 hyper_parameter_tuning()
-
-"""### Model Registry"""
-
 
 def register_model():
 
