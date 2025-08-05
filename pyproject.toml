@@ -1,0 +1,21 @@
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+  "invalid-name",
+  "too-few-public-methods",
+  "too-many-arguments",
+  "too-many-locals",
+  "too-many-positional-arguments",
+  "missing-function-docstring",
+  "missing-module-docstring",
+  "duplicate-code"
+]
+
+
+[tool.black]
+line-length = 80q
+target-version = ['py39']
+skip-string-normalization = true
+
+
+[tool.isort]
+length_sort = true
