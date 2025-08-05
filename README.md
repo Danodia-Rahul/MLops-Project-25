@@ -26,34 +26,30 @@ This repository focuses on:
 MLOPS-PROJECT-25
 │
 ├── Data/
-│ └── train.csv ← Training data 
-│
-├── Deployment/ 
-│ ├── app.py 
-│ ├── predict.py
-│ ├── test.py 
-│ └── Dockerfile 
-│
-├── MLFlow/ 
-│ ├── colab_mlflow_tracking.ipynb
-│ └── mlflow_tracking_script.py
-│
-├── Models/ 
-│ ├── model.xgb
-│ └── preprocessor.bin
-│
-├── Prefect/ 
-│ ├── prefect_flow.py
-│ └── prefect_setup.sh
-│
+│   └── train.csv  # Training data
+├── Deployment/
+│   ├── app.py
+│   ├── predict.py
+│   ├── test.py
+│   └── Dockerfile
+├── MLFlow/
+│   ├── colab_mlflow_tracking.ipynb
+│   └── mlflow_tracking_script.py
+├── Models/
+│   ├── model.xgb
+│   └── preprocessor.bin
+├── Prefect/
+│   ├── prefect_flow.py
+│   └── prefect_setup.sh
 ├── .gitignore
 ├── .pylintrc
 ├── .prefectignore
-├── Pipfile / Pipfile.lock 
-├── prefect.yaml 
-├── pyproject.toml 
-├── req.txt 
-└── README.md 
+├── Pipfile
+├── Pipfile.lock
+├── prefect.yaml
+├── pyproject.toml
+├── req.txt
+└── README.md
 
 
 ## ⚙️ Setup & Installation
