@@ -21,12 +21,12 @@ This repository focuses on:
 - **Experiment Tracking:** MLflow  
 - **Version Control:** Git & GitHub
 
-## 📁 Project Structure
+### 📁 MLOPS-PROJECT-25 Directory Structure
 
-MLOPS-PROJECT-25
-│
+<pre>
+MLOPS-PROJECT-25/
 ├── Data/
-│   └── train.csv  # Training data
+│   └── train.csv
 ├── Deployment/
 │   ├── app.py
 │   ├── predict.py
@@ -50,6 +50,8 @@ MLOPS-PROJECT-25
 ├── pyproject.toml
 ├── req.txt
 └── README.md
+</pre>
+
 
 
 ## ⚙️ Setup & Installation
